@@ -1,0 +1,59 @@
+<script>
+    function client(){
+        var i = document.getElementById("in").Value
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET","http://192.168.0.103/cgi-bin/app.py?input="+i,true);
+        xhr.send();
+        xhr.onload = function(){
+            var o = xhr.responseText;
+            document.getElementById("d").innerHTML = o;
+        }
+    }
+</script>
+<html>
+    <head>
+        <h1> Web Application For Docker</h1>
+        <style>
+           body {
+                    background-image: url("1.jpg");
+                    background-size: 1940px;
+                }
+            h1{
+                text-align: center;
+            }
+            
+            .f{
+                background-image: url("images.jpg");
+                margin: auto;
+                width: 30%;
+                border: 3px solid;
+                padding: 10px;
+                
+            }
+            #d{
+                background-image: url("images.jpg");
+                margin: auto;
+                width: 30%;
+                height: 100px;
+                border: 3px solid;
+                padding: 10px;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <div class="f">
+            <form>
+                 <label for="in">Enter the command</label>
+                 <br>
+                 <input type="text" id="in" size="60" style = "height:25px">
+                 <input onclick="client()" type="button" value="Run" class="right" style = "height: 25px ">
+                 <br>
+            </form>
+        </div>
+        <pre>
+            <div id = "d"></div>
+        </pre>
+    </body>
+</html>
